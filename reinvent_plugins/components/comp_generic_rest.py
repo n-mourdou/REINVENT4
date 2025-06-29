@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 __all__ = ["REST"]
-from typing import List, Dict
+from typing import List, Dict, Any
 
 import requests
 import numpy as np
@@ -33,7 +33,7 @@ class Parameters:
     predictor_id: List[str]
     predictor_version: List[str]
     header: List[Dict[str, str]] = None
-    reference_smiles: str = None
+    reference_smiles: Any = None
 
 
 DEFAULT_HEADER = {
@@ -55,7 +55,7 @@ class REST:
         self.predictor_ids = params.predictor_id
         self.predictor_versions = params.predictor_version
         self.headers = params.header
-        self.reference_smile = params.reference_smiles  # Store the dynamic reference smile
+        # self.reference_smile = params.reference_smiles  # Store the dynamic reference smile
 
         # needed in the normalize_smiles decorator
         self.smiles_type = "rdkit_smiles"
